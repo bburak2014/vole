@@ -18,11 +18,19 @@ export const todoSlice = createSlice({
 	initialState: [],
 	reducers: {
 		addTodo: (state, action) => {
-			// const todo = {
-			// 	id: nanoid()
-			// 	[action.payload]
- 			// }
-			state.push(action.payload);
+			const todo = {
+				id: nanoid(),
+				photoUrl: action.payload.photoUrl,
+				price: action.payload.price,
+				cardType: action.payload.cardType,
+				name: action.payload.name,
+				position: action.payload.position,
+				team: action.payload.team,
+				attributes: action.payload.attributes,
+			};
+
+			state.push(todo);
+
 		},
 		toggleComplete: (state, action) => {
 			const index = state.findIndex((todo) => todo.id === action.payload.id);
